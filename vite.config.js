@@ -10,6 +10,7 @@ export default defineConfig({
     proxy: {
       // string shorthand: http://localhost:5173/foo -> http://localhost:4567/foo
       '/setAlarm': 'http://seans-alarm.local',
+      '/getAlarms': 'http://seans-alarm.local'
       }}
 
 
