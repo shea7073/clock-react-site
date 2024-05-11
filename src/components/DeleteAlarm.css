@@ -1,0 +1,8 @@
+.delete-icon {
+    color: red;
+}
+
+.delete-cont:hover {
+    background-color: #D0D0D0;
+    border-radius: 10px;
+}

@@ -1,0 +1,24 @@
+h2, table {
+    font-family: "Jersey 10";
+    text-align: center;
+    color: #306230;
+}
+
+.alarms-display {
+    width: 390px;
+    margin: auto;
+}
+
+table {
+    width: 100%;
+}
+
+td {
+    font-size: 2rem;
+    text-align: center;
+}
+
+th {
+    font-size: 2rem;
+}
+

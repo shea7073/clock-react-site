@@ -6,6 +6,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
 import { MobileTimePicker } from '@mui/x-date-pickers/MobileTimePicker';
 import dayjs from 'dayjs';
+import AlarmDisplay from './components/AlarmDisplay';
 
 
 function App() {
@@ -23,7 +24,6 @@ function App() {
       return response.json();
     }).then((data => {
       setAlarmList(data);
-      console.log(data);
     }));
 
   }, []);
@@ -40,14 +40,20 @@ function App() {
       method: 'POST',
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(time)
-    }).then(console.log(JSON.stringify(time)));
+    })
+      .then((response) => {
+        if (response.status !== 404) {
+          console.log(response.status);
+          setAlarmList([...alarmList, time]);
+        }
+        
+      });
      
   }
 
   return (
 
     <div className='cont'>
-    
 
     <h1 className='title'>Smart Rise</h1>
     <h4>v1.0</h4>
@@ -63,20 +69,15 @@ function App() {
       
     </div>
 
-    <button className='button' type='submit'>Set Alarm</button>
+    <button className='submit-btn' type='submit'>Set Alarm</button>
 
     </form>
 
     <div>
-    <h1>Data</h1>
-    <ul>
-      {alarmList.map(alarm => (
-        <li key={alarm.hours + alarm.minutes}>{alarm.hours} : {alarm.minutes}</li> 
-      ))}
-    </ul>
+    
   </div>
 
-
+  <AlarmDisplay alarmList={alarmList}></AlarmDisplay>
 
     </div>
     
