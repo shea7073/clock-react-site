@@ -27,6 +27,12 @@ function App() {
     }));
 
   }, []);
+
+  function updateAlarmState(hours, minutes) {
+    const newAlarmList = alarmList.filter(alarm => alarm.hours !== hours && alarm.minutes !== minutes);
+    console.log(newAlarmList);
+    setAlarmList(newAlarmList);
+  }
   
 
 
@@ -44,6 +50,7 @@ function App() {
       .then((response) => {
         if (response.status !== 404) {
           console.log(response.status);
+          time.isActive = 1;
           setAlarmList([...alarmList, time]);
         }
         
@@ -77,7 +84,7 @@ function App() {
     
   </div>
 
-  <AlarmDisplay alarmList={alarmList}></AlarmDisplay>
+  <AlarmDisplay alarmList={alarmList} updateAlarm={updateAlarmState}></AlarmDisplay>
 
     </div>
     

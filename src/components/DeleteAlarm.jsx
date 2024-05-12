@@ -17,8 +17,8 @@ function DeleteAlarm(props) {
       body: JSON.stringify(time)
     })
       .then((response) => {
-        props.delete-ui();
-        console.log(response.status)
+        console.log(response.status);
+        props.deleteUI(time.hours, time.minutes);
         
       });
      

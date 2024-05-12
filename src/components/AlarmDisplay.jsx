@@ -6,7 +6,8 @@ import DeleteAlarm from './DeleteAlarm';
 
 function AlarmDisplay(props) {
 
-    function updateAlarmList(){
+    function updateAlarmList(hours, minutes){
+        props.updateAlarm(hours, minutes);
 
     }
 
@@ -29,8 +30,8 @@ function AlarmDisplay(props) {
             {props.alarmList.map(alarm => (
             <tr key={alarm.hours + alarm.minutes}>
                 <td>{alarm.hours} : {alarm.minutes} </td>
-                <td><Switch></Switch></td>
-                <td><DeleteAlarm delete-ui={updateAlarmList} minutes={alarm.minutes} hours={alarm.hours}/></td>
+                <td><Switch checked={Boolean(alarm.isActive)}></Switch></td>
+                <td><DeleteAlarm deleteUI={updateAlarmList} minutes={alarm.minutes} hours={alarm.hours}/></td>
 
             </tr> 
         ))}
