@@ -1,11 +1,11 @@
 import React from 'react';
-import Switch from '@mui/material/Switch';
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import './AlarmDisplay.css'
 import DeleteAlarm from './DeleteAlarm';
+import ToggleAlarm from './ToggleAlarm'
+
 
 function AlarmDisplay(props) {
-
+    
     function updateAlarmList(hours, minutes){
         props.updateAlarm(hours, minutes);
 
@@ -30,7 +30,7 @@ function AlarmDisplay(props) {
             {props.alarmList.map(alarm => (
             <tr key={alarm.hours + alarm.minutes}>
                 <td>{alarm.hours} : {alarm.minutes} </td>
-                <td><Switch checked={Boolean(alarm.isActive)}></Switch></td>
+                <td><ToggleAlarm alarm={alarm}/></td>
                 <td><DeleteAlarm deleteUI={updateAlarmList} minutes={alarm.minutes} hours={alarm.hours}/></td>
 
             </tr> 
