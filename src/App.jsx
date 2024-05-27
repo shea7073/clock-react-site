@@ -29,7 +29,7 @@ function App() {
   }, []);
 
   function updateAlarmState(hours, minutes) {
-    const newAlarmList = alarmList.filter(alarm => alarm.hours !== hours && alarm.minutes !== minutes);
+    const newAlarmList = alarmList.filter(alarm => !(alarm.hours == hours && alarm.minutes == minutes));
     console.log(newAlarmList);
     setAlarmList(newAlarmList);
   }
