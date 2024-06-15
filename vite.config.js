@@ -12,6 +12,7 @@ export default defineConfig({
       '/setAlarm': 'http://seans-alarm.local',
       '/getAlarms': 'http://seans-alarm.local',
       '/deleteAlarm': 'http://seans-alarm.local',
+      '/toggleAlarm': 'http://seans-alarm.local',
       }}
 
 

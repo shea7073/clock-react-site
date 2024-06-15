@@ -8,6 +8,9 @@ import { MobileTimePicker } from '@mui/x-date-pickers/MobileTimePicker';
 import dayjs from 'dayjs';
 import AlarmDisplay from './components/AlarmDisplay';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
 
@@ -52,6 +55,10 @@ function App() {
           console.log(response.status);
           time.isActive = 1;
           setAlarmList([...alarmList, time]);
+          toast("Alarm Set!")
+        }
+        else {
+          toast("Could not set alarm!");
         }
         
       });
@@ -85,6 +92,9 @@ function App() {
   </div>
 
   <AlarmDisplay alarmList={alarmList} updateAlarm={updateAlarmState}></AlarmDisplay>
+
+  <ToastContainer/>
+
 
     </div>
     
